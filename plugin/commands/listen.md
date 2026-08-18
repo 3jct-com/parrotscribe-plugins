@@ -4,17 +4,19 @@ description: Listen to a live Parrot Scribe session and coach from the sidebar
 
 Use the Parrot Scribe MCP tools already connected to this host. Do not start another MCP server.
 
-## Start if idle
+## Start immediately
 
-1. Call `get_status`.
-2. MCP rest state is `paused`, not `idle`. Call `start_recording` only when the state is `paused`.
-3. Do not start if the state is already `recording` or `listening`.
+Call `start_recording` immediately. It is a no-op if the session is already `recording` or `listening`. MCP rest is `paused`, not `idle`.
 
 ## Poll the live cursor
 
-Stay in this slash-command session. Poll `live_transcript` on a short loop. An empty result is not a live ring and is not a reason to exit.
+Stay in this slash-command session. Poll `live_transcript` on a short loop.
 
-The result may be the JSON cursor or the unwrapped `text` (TOON lines). If you get JSON, echo both `epoch` and `sinceSequence` on the next `live_transcript` call. If you get TOON lines or an empty result, keep polling.
+The result may be the JSON cursor or the unwrapped `text` (TOON lines).
+
+- JSON: `text` is the speech. Echo both `epoch` and `sinceSequence` on the next `live_transcript` call.
+- Unwrapped TOON: that is `text`. Consume it as the speech.
+- Empty: no new speech. Keep polling. Do not exit.
 
 Parse JSON when present:
 
