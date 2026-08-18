@@ -1,0 +1,15 @@
+{
+  "name": "parrotscribe-plugins",
+  "owner": {
+    "name": "Johan Thorén",
+    "url": "https://github.com/johanthoren"
+  },
+  "plugins": [
+    {
+      "name": "parrotscribe-listen-recap",
+      "description": "Slash commands that listen to a live Parrot Scribe session and recap it with whatever skills the host already loaded.",
+      "version": "0.1.0",
+      "source": "./plugin"
+    }
+  ]
+}
