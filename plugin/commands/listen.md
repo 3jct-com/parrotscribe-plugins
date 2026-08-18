@@ -7,20 +7,20 @@ Use the Parrot Scribe MCP tools already connected to this host. Do not start ano
 ## Start if idle
 
 1. Call `get_status`.
-2. If the recording state is idle (not already recording or listening), call `start_recording`.
-3. Do not start again if a session is already live.
+2. MCP rest state is `paused`, not `idle`. Call `start_recording` only when the state is `paused`.
+3. Do not start if the state is already `recording` or `listening`.
 
 ## Poll the live cursor
 
-Stay in this slash-command session. Poll `live_transcript` on a short loop.
+Stay in this slash-command session. Poll `live_transcript` on a short loop. An empty result is not a live ring and is not a reason to exit.
 
-Parse `content[0].text` as JSON:
+The result may be the JSON cursor or the unwrapped `text` (TOON lines). If you get JSON, echo both `epoch` and `sinceSequence` on the next `live_transcript` call. If you get TOON lines or an empty result, keep polling.
+
+Parse JSON when present:
 
 ```json
 {"epoch": 0, "sinceSequence": 0, "gap": false, "text": ""}
 ```
-
-Echo both `epoch` and `sinceSequence` on the next `live_transcript` call.
 
 ## Gap is resync
 
