@@ -1,5 +1,5 @@
 {
-  "name": "parrotscribe-listen-recap",
+  "name": "core",
   "version": "0.1.0",
   "description": "Slash commands that listen to a live Parrot Scribe session and recap it with whatever skills the host already loaded."
 }
