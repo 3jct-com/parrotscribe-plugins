@@ -1,12 +1,15 @@
 ---
 description: Listen to a live Parrot Scribe session and coach from the sidebar
+argument-hint: "[instructions]"
 ---
 
 Use the Parrot Scribe MCP tools already connected to this host. Do not start another MCP server.
 
 ## Start immediately
 
-Call `start_recording` immediately. It is a no-op if the session is already `recording` or `listening`. MCP rest is `paused`, not `idle`.
+Call `start_recording` immediately, before you read `$ARGUMENTS`. No-op if already `recording` or `listening`. MCP rest is `paused`, not `idle`.
+
+`$ARGUMENTS` is how to act. `/listen as sales coach`. `/listen with the stand-up skill`. `/listen highlight Josh`.
 
 ## Poll the live cursor
 
@@ -30,7 +33,7 @@ If `gap` is true, treat it as a resync, not as no new speech. Adopt the returned
 
 ## Stay silent
 
-Stay silent by default. Interject only when a harness skill already loaded in this host supplies a reason. This is a sidebar coach, not barge-in: keep any note in this chat; do not speak into the recorded conversation.
+Stay silent by default. Interject only when `$ARGUMENTS` or a harness skill already loaded in this host supplies a reason. This is a sidebar coach, not barge-in: keep any note in this chat; do not speak into the recorded conversation.
 
 ## User stop is recap
 
