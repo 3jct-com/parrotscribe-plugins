@@ -31,3 +31,9 @@ If `gap` is true, treat it as a resync, not as no new speech. Adopt the returned
 ## Stay silent
 
 Stay silent by default. Interject only when a harness skill already loaded in this host supplies a reason. This is a sidebar coach, not barge-in: keep any note in this chat; do not speak into the recorded conversation.
+
+## User stop is recap
+
+On the poll loop, also call `get_status`. If this turn has already seen `recording` or `listening`, and status is now `paused`, stop polling and run `/recap` immediately. Do not troubleshoot. Do not restart.
+
+If this turn never saw `recording` or `listening`, do not recap.
