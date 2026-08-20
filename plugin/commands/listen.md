@@ -9,7 +9,7 @@ Use the Parrot Scribe MCP tools already connected to this host. Do not start ano
 
 Call `start_recording` immediately, before you read `$ARGUMENTS`. No-op if already `recording` or `listening`. MCP rest is `paused`, not `idle`.
 
-`$ARGUMENTS` is how to act. `/listen as sales coach`. `/listen with the stand-up skill`. `/listen highlight Josh`.
+`$ARGUMENTS` is how to act. `/parrot:listen as sales coach`. `/parrot:listen with the stand-up skill`. `/parrot:listen highlight Josh`.
 
 ## Poll the live cursor
 
@@ -37,6 +37,6 @@ Stay silent by default. Interject only when `$ARGUMENTS` or a harness skill alre
 
 ## User stop is recap
 
-On the poll loop, also call `get_status`. If this turn has already seen `recording` or `listening`, and status is now `paused`, stop polling and run `/recap` immediately. Do not troubleshoot. Do not restart.
+On the poll loop, also call `get_status`. If this turn has already seen `recording` or `listening`, and status is now `paused`, stop polling and run `/parrot:recap` immediately. Do not troubleshoot. Do not restart.
 
 If this turn never saw `recording` or `listening`, do not recap.

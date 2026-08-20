@@ -5,7 +5,7 @@ argument-hint: "[session]"
 
 Use the Parrot Scribe MCP tools already connected to this host. Do not start another MCP server.
 
-The free text after `/recap` is `$ARGUMENTS`.
+The free text after `/parrot:recap` is `$ARGUMENTS`.
 
 1. Call `stop_recording` immediately. It is a no-op if the session is already `paused`. Live states are `recording` and `listening`.
 2. Resolve the session:

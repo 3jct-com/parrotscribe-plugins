@@ -6,9 +6,9 @@
   },
   "plugins": [
     {
-      "name": "core",
+      "name": "parrot",
       "description": "Slash commands that listen to a live Parrot Scribe session and recap it with whatever skills the host already loaded.",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "source": "./plugin"
     }
   ]
