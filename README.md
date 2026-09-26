@@ -4,15 +4,17 @@ Follow a live conversation using the context, skills, and tools your agent alrea
 
 ## Choose your desktop app
 
-Start with the [agent setup guide](https://parrotscribe.com/docs/integrations/listen-install). Parrot Scribe 1.0.1 or later must be installed and running, with Pro and MCP enabled. Give each client its own revocable token.
+Parrot Scribe 1.0.2 connects ChatGPT, Claude, and Cursor from **Settings > AI Apps**. Open the selected desktop AI app first and leave it running, then choose **Connect** on its row. This catalog does not install those rows.
+
+Connect approves the AI app's current running session. After that app restarts, choose **Manage… > Connect** on its row to approve the new session. This reuses its existing credential and profile. Reopening the AI app alone does not renew approval.
 
 | Desktop app | Connection and instructions |
 | --- | --- |
-| ChatGPT Desktop | Add this marketplace and install Parrot Scribe in the desktop Plugins Directory for Work or Codex. The bundled connection needs a token in the local host environment; Dock launches can use the guide's manual Keychain connection with the bundled connection disabled. |
-| Claude Desktop | Desktop Chat needs its own local MCP connection alongside the plugin's instructions. The bundled Claude Code token prompt does not configure Desktop Chat or Cowork. Use the manual setup guide; this package does not include a desktop extension. |
-| Cursor | Use the manual MCP connection and load the listening contract as instructions. This version does not include a Cursor plugin adapter. |
+| ChatGPT | The app opens a local plugin with the connection and the listening skill. Start a new local task and select **listening**. |
+| Claude | The app installs a local extension, then **Add listening skill…** opens Claude. Claude can still show its red unreviewed-extension warning. |
+| Cursor | The app installs `~/.cursor/plugins/local/parrot` and opens Cursor's connection handoff. It does not add the older Cursor commands. Start a new chat. |
 
-The catalog is a custom marketplace, not a listing in each provider's public directory. Local connections do not make your Mac available to a web or mobile client. See [OpenAI's marketplace documentation](https://developers.openai.com/plugins/build/plugins) and [Claude's platform differences](https://claude.com/docs/plugins/platform-support).
+The catalog is a custom marketplace for Claude Code and the Codex CLI, not a listing in each provider's public directory. Local connections do not make your Mac available to a web or mobile client.
 
 ## Install in Claude Code
 
@@ -23,7 +25,7 @@ Install from the [plugin marketplace](https://github.com/3jct-com/parrotscribe-p
 /plugin install parrot@parrotscribe-plugins
 ```
 
-Plugin 0.4.0 bundles the connection to `/Applications/Parrot Scribe.app/Contents/MacOS/parrotscribe-mcp-shim`. Install the app at that path, keep it running, and enable **Settings > MCP**. MCP access requires Parrot Scribe Pro. Update older plugin installations to 0.4.0 to add this bundled connection.
+Plugin 0.4.0 bundles the connection to `/Applications/Parrot Scribe.app/Contents/MacOS/parrotscribe-mcp-shim`. Install the app at that path, keep it running, and turn on **Allow AI apps** in **Settings > AI Apps**. MCP access requires Parrot Scribe Pro. Create this client's token under **Advanced**. Update older plugin installations to 0.4.0 to add this bundled connection.
 
 Create a token for this Claude Code client in Parrot Scribe, then enter it in the plugin's **Parrot Scribe client token** prompt. Claude Code's [sensitive plugin configuration](https://code.claude.com/docs/en/plugins-reference#user-configuration) stores it in the platform credential store and passes it to the shim as `PARROTSCRIBE_MCP_TOKEN`. The package contains only the reference, never your token. Use a current Claude Code version with `userConfig` support.
 

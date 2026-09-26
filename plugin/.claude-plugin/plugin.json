@@ -23,7 +23,7 @@
     "mcp_token": {
       "type": "string",
       "title": "Parrot Scribe client token",
-      "description": "Create a token for this Claude Code client in Parrot Scribe Settings > MCP. Keep Parrot Scribe running with MCP enabled.",
+      "description": "Create a separate token for this Claude Code client in Parrot Scribe Settings > AI Apps > Advanced. Keep Parrot Scribe running with Allow AI apps turned on.",
       "required": true,
       "sensitive": true
     }

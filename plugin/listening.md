@@ -2,7 +2,7 @@
 
 Use the Parrot Scribe MCP tools connected by this host. The host may launch the bundled stdio shim to connect to the running app; do not start a second app server. Keep reasoning, domain skills, and task execution in the user's host. This contract applies to both listening and recapping.
 
-Before capture or transcript work, check that the host can call `get_status`. If the Parrot Scribe MCP tools are absent or the connection fails, stop and explain how to connect the bundled shim: Parrot Scribe Pro, **Settings > MCP**, a client token, and the [host setup guide](https://parrotscribe.com/docs/integrations/listen-install). Do not claim the session is live or retry unavailable tools in a loop.
+Before capture or transcript work, check that the host can call `get_status`. If the Parrot Scribe MCP tools are absent or the connection fails, stop and explain how to connect the bundled shim: Parrot Scribe Pro, **Settings > AI Apps > Advanced**, a separate token for this CLI host, and the [host setup guide](https://parrotscribe.com/docs/integrations/listen-install). Do not claim the session is live or retry unavailable tools in a loop.
 
 ## Authority follows the input channel
 
