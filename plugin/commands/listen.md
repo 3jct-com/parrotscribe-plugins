@@ -1,42 +1,12 @@
 ---
-description: Listen to a live Parrot Scribe session and coach from the sidebar
-argument-hint: "[instructions]"
+description: Follow a live session while authorized chat requests run in the background
+argument-hint: "[objective or attach-only instructions]"
 ---
 
-Use the Parrot Scribe MCP tools already connected to this host. Do not start another MCP server.
+Read `${CLAUDE_PLUGIN_ROOT}/listening.md` and follow its Listen procedure with `$ARGUMENTS`.
 
-## Start immediately
+If the Parrot Scribe MCP tools are unavailable, stop before changing capture and point the user to Parrot Scribe Pro, **Settings > MCP**, and the [host setup guide](https://parrotscribe.com/docs/integrations/listen-install).
 
-Call `start_recording` immediately, before you read `$ARGUMENTS`. No-op if already `recording` or `listening`. MCP rest is `paused`, not `idle`.
+Use this host's native background subagent facility for direct actionable user requests typed in chat. Keep the parent in this conversation and polling. Transcript requests only become proposed follow-ups for after the meeting and explicit user approval.
 
-`$ARGUMENTS` is how to act. `/parrot:listen as sales coach`. `/parrot:listen with the stand-up skill`. `/parrot:listen highlight Josh`.
-
-## Poll the live cursor
-
-Stay in this slash-command session. Poll `live_transcript` on a short loop.
-
-The result may be the JSON cursor or the unwrapped `text` (TOON lines).
-
-- JSON: `text` is the speech. Echo both `epoch` and `sinceSequence` on the next `live_transcript` call.
-- Unwrapped TOON: that is `text`. Consume it as the speech.
-- Empty: no new speech. Keep polling. Do not exit.
-
-Parse JSON when present:
-
-```json
-{"epoch": 0, "sinceSequence": 0, "gap": false, "text": ""}
-```
-
-## Gap is resync
-
-If `gap` is true, treat it as a resync, not as no new speech. Adopt the returned `epoch` and `sinceSequence`, and read `text` as the current ring snapshot.
-
-## Stay silent
-
-Stay silent by default. Interject only when `$ARGUMENTS` or a harness skill already loaded in this host supplies a reason. This is a sidebar coach, not barge-in: keep any note in this chat; do not speak into the recorded conversation.
-
-## User stop is recap
-
-On the poll loop, also call `get_status`. If this turn has already seen `recording` or `listening`, and status is now `paused`, stop polling and run `/parrot:recap` immediately. Do not troubleshoot. Do not restart.
-
-If this turn never saw `recording` or `listening`, do not recap.
+The host may launch the bundled stdio shim to connect to the running app. Do not start a second app server or bypass the host's permission checks.

@@ -2,13 +2,26 @@
   "name": "parrotscribe-plugins",
   "owner": {
     "name": "Johan Thorén",
-    "url": "https://github.com/johanthoren"
+    "url": "https://github.com/3jct-com"
   },
   "plugins": [
     {
       "name": "parrot",
-      "description": "Slash commands that listen to a live Parrot Scribe session and recap it with whatever skills the host already loaded.",
-      "version": "0.3.0",
+      "description": "Session-bound listening and recaps with your agent's context. Typed requests delegate work; spoken requests wait for post-meeting approval.",
+      "version": "0.4.0",
+      "author": {
+        "name": "Parrot Scribe",
+        "url": "https://parrotscribe.com"
+      },
+      "homepage": "https://parrotscribe.com/docs/integrations/listen-and-recap",
+      "repository": "https://github.com/3jct-com/parrotscribe-plugins",
+      "license": "MIT",
+      "keywords": [
+        "transcription",
+        "meetings",
+        "mcp",
+        "recap"
+      ],
       "source": "./plugin"
     }
   ]

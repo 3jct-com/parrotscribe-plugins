@@ -10,22 +10,22 @@
   "repository": "https://github.com/3jct-com/parrotscribe-plugins",
   "license": "MIT",
   "keywords": ["transcription", "meetings", "mcp", "recap"],
+  "skills": "./skills/",
   "mcpServers": {
     "parrotscribe": {
       "type": "stdio",
       "command": "/Applications/Parrot Scribe.app/Contents/MacOS/parrotscribe-mcp-shim",
-      "env": {
-        "PARROTSCRIBE_MCP_TOKEN": "${user_config.mcp_token}"
-      }
+      "env_vars": ["PARROTSCRIBE_MCP_TOKEN"]
     }
   },
-  "userConfig": {
-    "mcp_token": {
-      "type": "string",
-      "title": "Parrot Scribe client token",
-      "description": "Create a token for this Claude Code client in Parrot Scribe Settings > MCP. Keep Parrot Scribe running with MCP enabled.",
-      "required": true,
-      "sensitive": true
-    }
+  "interface": {
+    "displayName": "Parrot Scribe",
+    "shortDescription": "Listen to sessions and recap transcripts",
+    "longDescription": "Use the installed Parrot Scribe app for session-bound listening and recaps. Requires Parrot Scribe 1.0.1 or later with Pro, MCP enabled, and a separate client token supplied to Codex's environment.",
+    "developerName": "Parrot Scribe",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://parrotscribe.com",
+    "defaultPrompt": ["Recap my latest completed Parrot Scribe session."]
   }
 }

@@ -1,16 +1,12 @@
 ---
-description: Stop if needed and recap a Parrot Scribe session
-argument-hint: "[session]"
+description: Recap a selected session without stopping unrelated capture
+argument-hint: "[session ID or historical description]"
 ---
 
-Use the Parrot Scribe MCP tools already connected to this host. Do not start another MCP server.
+Read `${CLAUDE_PLUGIN_ROOT}/listening.md` and follow its Recap procedure with `$ARGUMENTS`.
 
-The free text after `/parrot:recap` is `$ARGUMENTS`.
+If the Parrot Scribe MCP tools are unavailable, stop and point the user to Parrot Scribe Pro, **Settings > MCP**, and the [host setup guide](https://parrotscribe.com/docs/integrations/listen-install).
 
-1. Call `stop_recording` immediately. It is a no-op if the session is already `paused`. Live states are `recording` and `listening`.
-2. Resolve the session:
-   - If `$ARGUMENTS` is empty, recap the newest session (first `list_sessions` row).
-   - If `$ARGUMENTS` has text, use `search_sessions` and `list_sessions` to find the match. Ask a clarifying question when more than one session could match. Do not guess.
-3. Call `read_transcript` for that session.
+Use the listening turn's bound session unless the user selects another. Recap is read-only; do not stop capture just to summarize. Spoken action requests remain proposals until the meeting ends and the user explicitly approves them in chat.
 
-Write a summary. Add follow-ups only when the session has real actions. A video or other passive watch with nothing to do gets no follow-ups. Do not invent any. Take the shape from harness skills already loaded in this host. Do not bake in a methodology.
+The host may launch the bundled stdio shim to connect to the running app. Do not start a second app server or bypass the host's permission checks.
